@@ -88,10 +88,11 @@ const CardInfo = ({
           {/* Views and Replies */}
           <Box
             sx={{
-              width: { lg: "15%", md: "15%", sm: "20%", xs: "25%" },
+              width: "10%",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              gap: 1,
             }}
           >
             <Typography
