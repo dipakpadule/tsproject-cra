@@ -1,15 +1,3 @@
-// blogtype, -- social/gadget etc
-// avatar,-- avatar of user or display picture -- used absolute positioning
-// readtime, -- reading time of the blog -- used absolute positioning
-// title,--- title of the blog
-// views,---- how many viewed
-// replies,---- total replies on blog
-// day,
-// date,   day and date of blog/post created
-
-// this card component receives above mentioned props
-// NOTE*****  image source need to be updated as required
-
 import React from "react";
 import {
   Avatar,
@@ -31,6 +19,7 @@ const CardInfo = ({
   day,
   date,
 }) => {
+  // Styles
   const cardStyles = {
     height: 468,
     position: "relative",
@@ -51,45 +40,97 @@ const CardInfo = ({
   };
 
   const boxStyles = {
-    height: 220,
+    height: 170,
     p: 3.5,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
   };
 
+  // Component
   return (
     <Paper sx={cardStyles}>
+      {/* Avatar */}
       <Avatar sx={avatarStyles} aria-label="card">
         {avatar}
       </Avatar>
+
+      {/* Readtime Chip */}
       <Chip label={`${readtime} mins read`} sx={chipStyles} />
+
+      {/* Card Media */}
       <CardMedia
         component="img"
         alt="Beautiful Flowers Field at Night"
         height="254"
         image="https://img.freepik.com/premium-photo/beautiful-flowers-field-night-against-full-moon-view-from-generative-ai_864588-9248.jpg"
       />
+
+      {/* Blog Info Box */}
       <Box sx={boxStyles}>
+        {/* Blog Type Chip */}
         <Box>
           <Chip label={blogtype} />
         </Box>
+
+        {/* Blog Title */}
         <Typography variant="h6" component="div">
           {title}
         </Typography>
+
+        {/* Views, Replies, and Date Info */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
           }}
         >
-          <Typography variant="body">
-            <RemoveRedEyeOutlined /> {views}
-          </Typography>
-          <Typography variant="body" sx={{ marginLeft: "-6em" }}>
-            <Message /> {replies}
-          </Typography>
-          <Typography variant="body">{` ${day}, ${date}`}</Typography>
+          {/* Views and Replies */}
+          <Box
+            sx={{
+              width: "40%",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              variant="body"
+              component="div"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                gap: 0.5,
+                alignItems: "center",
+              }}
+            >
+              <RemoveRedEyeOutlined /> {views}
+            </Typography>
+            <Typography
+              variant="body"
+              component="div"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                gap: 0.5,
+                alignItems: "center",
+              }}
+            >
+              <Message /> {replies}
+            </Typography>
+          </Box>
+
+          {/* Date Info */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 0.5,
+              alignItems: "center",
+            }}
+          >
+            <Typography variant="body">{` ${day}, ${date}`}</Typography>
+          </Box>
         </Box>
       </Box>
     </Paper>
