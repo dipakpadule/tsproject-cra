@@ -88,7 +88,7 @@ const CardInfo = ({
           {/* Views and Replies */}
           <Box
             sx={{
-              width: "40%",
+              width: { lg: "15%", md: "15%", sm: "20%", xs: "25%" },
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
